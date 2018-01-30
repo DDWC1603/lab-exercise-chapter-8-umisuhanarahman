@@ -1,45 +1,49 @@
+//umi suhana bt abdul rahman
+//a17dw2041
+
 #include<iostream>
 using namespace std;
 
 class Log
 {
 public:
-	enum level (Error=0, Warning=1, Info=2);
-
+	enum level {error=0, warning=1, info=2};
+	
 private:
-	int m_LogLevel=Info;
-
+	int m_LogLevel=info;
+	
 public:
 	void SetLevel(int level)
 	{
-		m_LogLevel=level;
+		m_LogLevel = level;
 	}
+	
 	void Error(const char* message)
 	{
-		if(m_LogLevel>=Error)
-			cout<<"[ERROR]: "<<message <<endl;
-			
+		if(m_LogLevel>=error)
+		cout<<"[ERROR]"<<message<<endl;
 	}
+	
 	void Warn(const char* message)
 	{
-		if(m_LogLevel>=Warning)
-			cout<<"[WARNING]: "<<message <<endl;
+		if(m_LogLevel>=warning)
+		cout<<"[WARNING]"<<message<<endl;
 	}
+	
 	void Info(const char* message)
 	{
-		if(m_LogLevel>=Info)
-			cout<<"[INFO]: "<<message <<endl;
+		if(m_LogLevel>=info)
+		cout<<"[INFO]"<<message<<endl;
 	}
-	
 };
 
-int main()
-
+int main ()
 {
-Log oLog;
-oLog.Warning;
-oLog.Warn("HELLO!!!");
 	
-std::cin.get();
+	Log oLog;
+	oLog.warning;
+	oLog.Warn("Hello!!");
+	
+	std::cin.get();
 	
 }
