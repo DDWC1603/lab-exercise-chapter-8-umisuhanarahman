@@ -4,12 +4,10 @@ using namespace std;
 class Log
 {
 public:
-	const int LogLevelError=0;
-	const int LogLevelWarning=1;
-	const int LogLevelInfo=2;
+	enum level (Error=0, Warning=1, Info=2);
 
 private:
-	int m_LogLevel=LogLevelInfo;
+	int m_LogLevel=Info;
 
 public:
 	void SetLevel(int level)
@@ -18,18 +16,18 @@ public:
 	}
 	void Error(const char* message)
 	{
-		if(m_LogLevel>=LogLevelError)
+		if(m_LogLevel>=Error)
 			cout<<"[ERROR]: "<<message <<endl;
 			
 	}
 	void Warn(const char* message)
 	{
-		if(m_LogLevel>=LogLevelWarning)
+		if(m_LogLevel>=Warning)
 			cout<<"[WARNING]: "<<message <<endl;
 	}
 	void Info(const char* message)
 	{
-		if(m_LogLevel>=LogLevelInfo)
+		if(m_LogLevel>=Info)
 			cout<<"[INFO]: "<<message <<endl;
 	}
 	
@@ -39,7 +37,7 @@ int main()
 
 {
 Log oLog;
-oLog.LogLevelWarning;
+oLog.Warning;
 oLog.Warn("HELLO!!!");
 	
 std::cin.get();
